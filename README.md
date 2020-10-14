@@ -1,12 +1,23 @@
 # CutrePaint
 
+![CutrePaintGUI](https://imgur.com/eyuGw80.png)
+
 CutrePaint is only a testing WPF Application. I wanted to do something simple but at the same time challenging.
 
 Cutre means "shabby" in Spanish.
 
-__Built With__
+## _Features_
 
-For this project I've used the WPF .NET Framework
+* Draw Rectangle
+  * You can specify its height, width and line thickness
+
+__Planning to add__ :
+
+* Draw with a 'pencil' like in Paint
+* Change Rectangle Fill Color
+* Support for adding Images
+
+And more...
 
 ## Installation
 
