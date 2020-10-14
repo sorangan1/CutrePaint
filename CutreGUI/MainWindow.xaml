@@ -1,0 +1,94 @@
+﻿<Window x:Class="CutreGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutreGUI"
+        mc:Ignorable="d" FontSize="24px" FontFamily="Consolas"
+        Title="Cutre Paint | v 0.1" Height="450" Width="800">
+    <Grid Background="LightSlateGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5px"/>
+            <ColumnDefinition Width="160px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5px"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5px"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" 
+                   VerticalAlignment="Center"
+                   Padding="5px"
+                   Foreground="White">
+            Cutre Paint
+        </TextBlock>
+
+        <Canvas x:Name="CutreCanvas" 
+                Grid.Row="1" Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Background="White"
+                ClipToBounds="True"
+                
+                MouseLeftButtonDown="CutreCanvas_MouseLeftButtonDown">
+        </Canvas>
+
+        <!-- Menu -->
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5px"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="5px"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5px"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5px"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="1" Grid.Column="1"
+                     Margin="5px" FontSize="12" 
+                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Foreground="Orange">
+                BORDER THICKNESS
+            </TextBlock>
+
+            <Slider x:Name="RectangleStrokeThickness" 
+                     Grid.Row="2" Grid.Column="1"
+                     Margin="5px" TickPlacement="TopLeft" 
+                     AutoToolTipPlacement="TopLeft"
+                     Value="1"/>
+            
+            <TextBox x:Name="RectangleWidth"
+                     Grid.Row="2" Grid.Column="2"
+                     Margin="5px" FontSize="12" 
+                     Text="30"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="2"
+                     Margin="5px" FontSize="12" 
+                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Foreground="Orange">
+                WIDTH
+            </TextBlock>
+            
+            <TextBox x:Name="RectangleHeight"
+                     Grid.Row="2" Grid.Column="3"
+                     Margin="5px" FontSize="12" 
+                     Text="30"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="3"
+                     Margin="5px" FontSize="12" 
+                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Foreground="Orange">
+                HEIGHT
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Window>
