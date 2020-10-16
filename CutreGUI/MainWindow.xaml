@@ -9,7 +9,7 @@
     <Grid Background="LightSlateGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5px"/>
-            <ColumnDefinition Width="160px"/>
+            <ColumnDefinition Width="80px"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5px"/>
         </Grid.ColumnDefinitions>
@@ -20,20 +20,23 @@
             <RowDefinition Height="5px"/>
         </Grid.RowDefinitions>
 
+        <!--Program name-->
         <TextBlock Grid.Row="0" Grid.Column="1" 
                    VerticalAlignment="Center"
                    Padding="5px"
                    Foreground="White">
-            Cutre Paint
+            Cutre <LineBreak/>
+            Paint
         </TextBlock>
 
+        <!--Canvas where the user draws-->
         <Canvas x:Name="CutreCanvas" 
                 Grid.Row="1" Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Background="White"
                 ClipToBounds="True"
                 
-                MouseLeftButtonDown="CutreCanvas_MouseLeftButtonDown">
+                MouseLeftButtonDown="CutreCanvas_MouseLeftButtonDown" MouseRightButtonDown="CutreCanvas_MouseRightButtonDown">
         </Canvas>
 
         <!-- Menu -->
@@ -43,6 +46,9 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5px"/>
             </Grid.ColumnDefinitions>
 
@@ -53,6 +59,7 @@
                 <RowDefinition Height="5px"/>
             </Grid.RowDefinitions>
 
+            <!--Object border thickness-->
             <TextBlock Grid.Row="1" Grid.Column="1"
                      Margin="5px" FontSize="12" 
                      VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -60,35 +67,111 @@
                 BORDER THICKNESS
             </TextBlock>
 
-            <Slider x:Name="RectangleStrokeThickness" 
+            <Slider x:Name="ObjectStrokeThickness" 
                      Grid.Row="2" Grid.Column="1"
                      Margin="5px" TickPlacement="TopLeft" 
                      AutoToolTipPlacement="TopLeft"
                      Value="1"/>
             
-            <TextBox x:Name="RectangleWidth"
-                     Grid.Row="2" Grid.Column="2"
-                     Margin="5px" FontSize="12" 
-                     Text="30"/>
-
+            <!--Object width-->
             <TextBlock Grid.Row="1" Grid.Column="2"
                      Margin="5px" FontSize="12" 
                      VerticalAlignment="Center" HorizontalAlignment="Center"
                      Foreground="Orange">
                 WIDTH
             </TextBlock>
-            
-            <TextBox x:Name="RectangleHeight"
-                     Grid.Row="2" Grid.Column="3"
-                     Margin="5px" FontSize="12" 
-                     Text="30"/>
 
+            <TextBox x:Name="ObjectWidth"
+                     Grid.Row="2" Grid.Column="2"
+                     Margin="5px" FontSize="12" 
+                     Text="50"/>
+
+            <!--Object height-->
             <TextBlock Grid.Row="1" Grid.Column="3"
                      Margin="5px" FontSize="12" 
                      VerticalAlignment="Center" HorizontalAlignment="Center"
                      Foreground="Orange">
                 HEIGHT
             </TextBlock>
+
+            <TextBox x:Name="ObjectHeight"
+                     Grid.Row="2" Grid.Column="3"
+                     Margin="5px" FontSize="12" 
+                     Text="50"/>
+
+            <!--Object selector-->
+
+            <Button x:Name="SelectCursor" Content=""
+                     Grid.Row="1" Grid.Column="4"
+                     Margin="2px" FontSize="12" Click="SelectCursor_Click"
+                    ToolTip="Select/Move elements">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/arrow.png"></ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="SelectRectangle" Content=""
+                     Grid.Row="2" Grid.Column="4"
+                     Margin="2px" FontSize="12" Click="SelectRectangle_Click"
+                    ToolTip="Draw a Rectangle">
+                <Button.Background>
+                    <ImageBrush ImageSource="icons/rect.png"></ImageBrush>
+                </Button.Background>
+            </Button>
+
+            <!--Clear canvas-->
+            <Button x:Name="ClearCanvas" Content="Clear"
+                     Grid.Row="1" Grid.Column="5"
+                     Margin="2px" FontSize="12" Click="ClearCanvas_Click"
+                     ToolTip="Clear all the canvas">
+            </Button>
+
+            <Grid Grid.Row="1" Grid.Column="6" Grid.RowSpan="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15px"/>
+                    <ColumnDefinition Width="15px"/>
+                    <ColumnDefinition Width="15px"/>
+                    <ColumnDefinition Width="15px"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15px"/>
+                    <RowDefinition Height="15px"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="ObjectColorWhite" Grid.Column="0" Grid.Row="0"
+                        Margin="1.5px"
+                        Background="White" Click="ObjectColorWhite_Click">
+                </Button>
+                <Button x:Name="ObjectColorRed" Grid.Column="1" Grid.Row="0"
+                        Margin="1.5px"
+                        Background="Red" Click="ObjectColorRed_Click">
+                </Button>
+                <Button x:Name="ObjectColorGreen" Grid.Column="2" Grid.Row="0"
+                        Margin="1.5px"
+                        Background="Lime" Click="ObjectColorGreen_Click">
+                </Button>
+                <Button x:Name="ObjectColorBlue" Grid.Column="3" Grid.Row="0"
+                        Margin="1.5px"
+                        Background="DodgerBlue" Click="ObjectColorBlue_Click">
+                </Button>
+                <Button x:Name="ObjectColorYellow" Grid.Column="0" Grid.Row="1"
+                        Margin="1.5px"
+                        Background="Yellow" Click="ObjectColorYellow_Click">
+                </Button>
+                <Button x:Name="ObjectColorPurple" Grid.Column="1" Grid.Row="1"
+                        Margin="1.5px"
+                        Background="MediumPurple" Click="ObjectColorPurple_Click">
+                </Button>
+                <Button x:Name="ObjectColorOrange" Grid.Column="2" Grid.Row="1"
+                        Margin="1.5px"
+                        Background="Orange" Click="ObjectColorOrange_Click">
+                </Button>
+                <Button x:Name="ObjectColorCyan" Grid.Column="3" Grid.Row="1"
+                        Margin="1.5px"
+                        Background="Cyan" Click="ObjectColorCyan_Click">
+                </Button>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
