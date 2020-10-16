@@ -1,6 +1,6 @@
 # CutrePaint
 
-![CutrePaintGUI](https://imgur.com/eyuGw80.png)
+![CutrePaintGUI](https://imgur.com/thKzetJ.png)
 
 CutrePaint is only a testing WPF Application. I wanted to do something simple but at the same time challenging.
 
